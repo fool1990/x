@@ -6,8 +6,8 @@ io.on('connection', client => {
     console.log('disconnected')
   })
 
-  client.on('test', data => {
-    console.log(data)
+  client.on('sendMsg', data => {
+    console.log(`the client sent a message: ${data}`)
     client.send('msg received')
   })
 })

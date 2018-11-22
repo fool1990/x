@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --host 0.0.0.0 --mode development --port 10010 --public localhost:10010 --open",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "server": "node server.js"
   },
   "author": "fukafu <fool199009170912@gmail.com>",
   "license": "MIT",

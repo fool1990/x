@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import io from 'socket.io-client';
+import io from 'socket.io-client'
+import Title from './titleEffect'
 
 const socket = io('http://localhost:17909')
 
@@ -20,9 +21,12 @@ function App() {
 
   return (<div>
     <button onClick={handleClick}>发送</button>
-    {msgList ?
+    {
+      msgList ?
       msgList.map((msg, index) => <div key={index}>{msg}</div>) :
-      null}
+      null
+    }
+    <Title title="hello"/>
   </div>)
 }
 

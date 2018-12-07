@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react'
 
+function useCounter(initialCount) {
+  const [ count, setCount ] = useState(initialCount)
+  const add = () => {
+    setCount(count + 1)
+  }
+  return [count, add]
+}
+
 export default function ({title}) {
-  const [ count, setCount ] = useState(0)
+  const [ count, add ] = useCounter(0)
   
   useEffect(() => {
     document.title = count
@@ -13,13 +21,10 @@ export default function ({title}) {
 
   return (
     <div>
-      <h3>You clicked: {count} time</h3>
+      <h3>You clicked: {count} times</h3>
       <button onClick={add}>+</button>
     </div>
   )
 
-  function add() {
-    setCount(count + 1)
-  }
 }
 

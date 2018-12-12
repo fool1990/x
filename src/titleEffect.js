@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useTitle } from 'react-use'
 
 function useCounter(initialCount) {
   const [ count, setCount ] = useState(initialCount)
@@ -8,16 +9,15 @@ function useCounter(initialCount) {
   return [count, add]
 }
 
+// function useTitle(title) {
+//   useEffect(() => {
+//     document.title = title
+//   },[title])
+// }
+
 export default function ({title}) {
   const [ count, add ] = useCounter(0)
-  
-  useEffect(() => {
-    document.title = count
-  })
-
-  // useEffect(() => {
-  //   document.title = count
-  // }, [title])
+  useTitle(count)
 
   return (
     <div>
